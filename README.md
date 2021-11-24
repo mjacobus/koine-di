@@ -1,6 +1,7 @@
 # Koine::Di
 
 Koine::Di, for your dependency injection
+A fork of [Nurse](https://github.com/mjacobus/nurse-rb) under a safer namespace.
 
 Code quality
 
