@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'nurse/version'
+require 'koine/di/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'nurse-rb'
-  spec.version       = Nurse::VERSION
+  spec.name          = 'koine-di'
+  spec.version       = Koine::Di::VERSION
   spec.authors       = ['Marcelo Jacobus']
   spec.email         = ['marcelo.jacobus@gmail.com']
 
-  spec.summary       = 'Nurse, for your dependency injection'
-  spec.description   = 'Nurse, for your dependency injection. Dependency injection container'
-  spec.homepage      = 'https://github.com/mjacobus/nurse-rb'
+  spec.summary       = 'Koine DI, for your dependency injection'
+  spec.description   = 'Koine DI, for your dependency injection. Dependency injection container'
+  spec.homepage      = 'https://github.com/mjacobus/koine-di'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
