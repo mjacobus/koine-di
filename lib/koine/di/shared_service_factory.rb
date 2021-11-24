@@ -1,14 +1,16 @@
-module Koine::Di
-  class SharedServiceFactory < ServiceFactory
-    def shared?
-      true
-    end
+module Koine
+  module Di
+    class SharedServiceFactory < ServiceFactory
+      def shared?
+        true
+      end
 
-    class << self
-      private
+      class << self
+        private
 
-      def share(_shared)
-        raise 'You cannot change the shared state of a shared service factory. Extend Nurse::ServiceFactory instead'
+        def share(_shared)
+          raise 'You cannot change the shared state of a shared service factory. Extend Nurse::ServiceFactory instead'
+        end
       end
     end
   end

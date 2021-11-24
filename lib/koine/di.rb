@@ -3,8 +3,10 @@ require 'koine/di/dependency_container'
 require 'koine/di/service_factory'
 require 'koine/di/shared_service_factory'
 
-module Koine::Di
-  def self.instance
-    @instance ||= Koine::Di::DependencyContainer.new
+module Koine
+  module Di
+    def self.instance
+      @instance ||= Koine::Di::DependencyContainer.new
+    end
   end
 end

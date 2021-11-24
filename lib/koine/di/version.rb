@@ -1,3 +1,5 @@
-module Koine::Di
-  VERSION = '2.1.0'
+module Koine
+  module Di
+    VERSION = '1.0.0'
+  end
 end
