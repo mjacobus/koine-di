@@ -6,7 +6,7 @@ A fork of [Nurse](https://github.com/mjacobus/nurse-rb) under a safer namespace.
 Code quality
 
 [![Coverage Status](https://coveralls.io/repos/github/mjacobus/koine-di/badge.svg?branch=master)](https://coveralls.io/github/mjacobus/koine-di?branch=master)
-[![Code Climate](https://codeclimate.com/github/mjacobus/koine-di/badges/gpa.svg)](https://codeclimate.com/github/mjacobus/koine-di)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6f3c3d324897109d5446/maintainability)](https://codeclimate.com/github/mjacobus/koine-di/maintainability)
 
 Package information
 
