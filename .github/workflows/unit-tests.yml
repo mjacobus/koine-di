@@ -16,7 +16,7 @@ jobs:
       run: |
         sudo apt-get -yqq install libpq-dev
         bundle install --jobs 4 --retry 3
-        bundle exec rake test:coveralls 
+        bundle exec rake test:coverage 
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:

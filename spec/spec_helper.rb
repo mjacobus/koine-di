@@ -15,22 +15,10 @@ SimpleCov::Formatter::LcovFormatter.config do |c|
   c.single_report_path = 'coverage/lcov.info'
 end
 
-if ENV['COVERALLS']
-  require 'coveralls'
-  Coveralls.wear!
-end
-
 if ENV['COVERAGE']
-  require 'simplecov'
-
   SimpleCov.start do
     add_filter '/test/'
   end
-end
-
-if ENV['SCRUTINIZER']
-  require 'scrutinizer/ocular'
-  Scrutinizer::Ocular.watch!
 end
 
 require 'koine/di'
