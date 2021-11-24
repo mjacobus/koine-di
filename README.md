@@ -1,23 +1,23 @@
-# Nurse
+# Koine::Di
 
-Nurse, for your dependency injection
+Koine::Di, for your dependency injection
 
 Code quality
 
-[![Build Status](https://travis-ci.org/mjacobus/nurse-rb.svg)](https://travis-ci.org/mjacobus/nurse-rb)
-[![Coverage Status](https://coveralls.io/repos/github/mjacobus/nurse-rb/badge.svg?branch=master)](https://coveralls.io/github/mjacobus/nurse-rb?branch=master)
-[![Code Climate](https://codeclimate.com/github/mjacobus/nurse-rb/badges/gpa.svg)](https://codeclimate.com/github/mjacobus/nurse-rb)
+[![Build Status](https://travis-ci.org/mjacobus/koine-di.svg)](https://travis-ci.org/mjacobus/koine-di)
+[![Coverage Status](https://coveralls.io/repos/github/mjacobus/koine-di/badge.svg?branch=master)](https://coveralls.io/github/mjacobus/koine-di?branch=master)
+[![Code Climate](https://codeclimate.com/github/mjacobus/koine-di/badges/gpa.svg)](https://codeclimate.com/github/mjacobus/koine-di)
 
 Package information
 
-[![Gem Version](https://badge.fury.io/rb/nurse-rb.svg)](https://badge.fury.io/rb/nurse-rb)
+[![Gem Version](https://badge.fury.io/rb/koine-di.svg)](https://badge.fury.io/rb/koine-di)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'nurse-rb'
+gem 'koine-di'
 ```
 
 And then execute:
@@ -26,14 +26,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install nurse-rb
+    $ gem install koine-di
 
 ## Usage
 
 ### Defining dependencies
 
 ```ruby
-dependency_manager = Nurse::DependencyContainer.new
+dependency_manager = Koine::Di::DependencyContainer.new
 
 dependency_manager.share(:connection) do |dependency_manager|
   MyConnection.new("mysql://root@localhost/my_db")
@@ -49,7 +49,7 @@ Also, you can use the singleton instance. Use singleton if you do not have
 control over how classes, such as controllers, are created.
 
 ```ruby
-dependency_manager = Nurse.instance
+dependency_manager = Koine::Di.instance
 ```
 
 ### Fetching dependencies
@@ -70,7 +70,7 @@ end
 ### Using factories
 
 ```ruby
-class DatabaseConnectionFactory < Nurse::ServiceFactory
+class DatabaseConnectionFactory < Koine::Di::ServiceFactory
   share true
   key :db_connection
 
@@ -79,7 +79,7 @@ class DatabaseConnectionFactory < Nurse::ServiceFactory
   end
 end
 
-class UserRepositoryFactory < Nurse::ServiceFactory
+class UserRepositoryFactory < Koine::Di::ServiceFactory
   key :user_repository
 
   def create_service(dependencies)
@@ -99,7 +99,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mjacobus/nurse-rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mjacobus/koine-di. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
