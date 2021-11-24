@@ -1,4 +1,4 @@
-module Nurse
+module Koine::Di
   # The dependency container class
   class DependencyContainer
     class UndefinedDependency < RuntimeError; end

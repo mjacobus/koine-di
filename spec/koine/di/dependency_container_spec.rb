@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Nurse::DependencyContainer do
+describe Koine::Di::DependencyContainer do
   let(:shared) { Hash.new }
   let(:new_hash) { Hash.new(foo: :bar) }
 
   let(:container) do
-    container = Nurse::DependencyContainer.new
+    container = Koine::Di::DependencyContainer.new
     container.share(Hash) { Hash.new }
     container.share(:definition) { :defined_object }
     container.share(:shared) { shared }
@@ -33,7 +33,7 @@ describe Nurse::DependencyContainer do
       begin
         container.share(:shared)
         fail
-      rescue Nurse::DependencyContainer::DependencyAlreadyDefined => e
+      rescue Koine::Di::DependencyContainer::DependencyAlreadyDefined => e
         e.message.must_equal "Dependency 'shared' was already defined"
       end
     end
@@ -44,7 +44,7 @@ describe Nurse::DependencyContainer do
       begin
         container.share(:new_hash)
         fail
-      rescue Nurse::DependencyContainer::DependencyAlreadyDefined => e
+      rescue Koine::Di::DependencyContainer::DependencyAlreadyDefined => e
         e.message.must_equal "Dependency 'new_hash' was already defined"
       end
     end
@@ -70,7 +70,7 @@ describe Nurse::DependencyContainer do
       begin
         container.get('undefined')
         fail
-      rescue Nurse::DependencyContainer::UndefinedDependency => e
+      rescue Koine::Di::DependencyContainer::UndefinedDependency => e
         e.message.must_equal "'undefined' was not defined"
       end
     end

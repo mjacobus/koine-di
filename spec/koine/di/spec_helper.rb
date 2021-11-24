@@ -18,7 +18,7 @@ if ENV['SCRUTINIZER']
   Scrutinizer::Ocular.watch!
 end
 
-require 'nurse'
+require 'koine/di'
 require 'minitest/autorun'
 require 'minitest/reporters'
 

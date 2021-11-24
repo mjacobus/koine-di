@@ -1,4 +1,4 @@
-module Nurse
+module Koine::Di
   class SharedServiceFactory < ServiceFactory
     def shared?
       true

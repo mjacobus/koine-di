@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Nurse::ServiceFactory do
+describe Koine::Di::ServiceFactory do
   let(:config) { Hash.new(foo: :bar) }
 
   let(:factory) do
-    Class.new(Nurse::SharedServiceFactory) do
+    Class.new(Koine::Di::SharedServiceFactory) do
       key :the_key
 
       def create_service(dependency_manager)
@@ -14,7 +14,7 @@ describe Nurse::ServiceFactory do
   end
 
   let(:container) do
-    container = Nurse::DependencyContainer.new
+    container = Koine::Di::DependencyContainer.new
     container.share(:config) { config }
     container.add_factory(factory.new)
     container
@@ -28,7 +28,7 @@ describe Nurse::ServiceFactory do
   end
 
   it 'extends ServiceFactory' do
-    factory.new.is_a?(Nurse::ServiceFactory).must_equal true
+    factory.new.is_a?(Koine::Di::ServiceFactory).must_equal true
   end
 
   it 'is not shared' do

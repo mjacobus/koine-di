@@ -1,4 +1,4 @@
-module Nurse
+module Koine::Di
   class ServiceFactory
     def attach_to(dependency_manager)
       if shared?
