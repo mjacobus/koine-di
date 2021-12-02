@@ -22,7 +22,7 @@ if ENV['COVERAGE']
 end
 
 require 'koine/di'
-
+require 'rspec'
 ENV.delete('VIM')
 
 RSpec.configure do |config|
