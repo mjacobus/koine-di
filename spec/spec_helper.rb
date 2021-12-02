@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
 require 'simplecov'
 require 'simplecov-lcov'
@@ -22,8 +22,9 @@ if ENV['COVERAGE']
 end
 
 require 'koine/di'
-require 'minitest/autorun'
-require 'minitest/reporters'
-
+require 'rspec'
 ENV.delete('VIM')
-Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(color: true)]
+
+RSpec.configure do |config|
+  config.order = :random
+end
