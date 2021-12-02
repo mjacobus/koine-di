@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
 require 'simplecov'
 require 'simplecov-lcov'
@@ -22,8 +22,20 @@ if ENV['COVERAGE']
 end
 
 require 'koine/di'
-require 'minitest/autorun'
-require 'minitest/reporters'
 
 ENV.delete('VIM')
-Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(color: true)]
+
+RSpec.configure do |config|
+  # config.expect_with :rspec do |expectations|
+  #   expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  # end
+
+  # config.mock_with :rspec do |mocks|
+  #   mocks.verify_partial_doubles = true
+  # end
+
+  # config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  # config.profile_examples = 10
+  config.order = :random
+end

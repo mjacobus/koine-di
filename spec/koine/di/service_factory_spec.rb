@@ -40,20 +40,26 @@ describe Koine::Di::ServiceFactory do
     it 'attaches to dependency_manager' do
       service = container.get(:the_key)
 
-      service.must_equal(Array.new([config]))
-      container.get(:the_key).wont_be_same_as(service)
+      expect(service).to eq(Array.new([config]))
+      expect(container.get(:the_key)).not_to equal(service)
     end
 
     it 'is not shared?' do
-      factory.new.shared?.must_equal false
+      expect(factory.new.shared?).to eq(false)
     end
 
     it 'raises error when #dependency_key is not overriden' do
-      -> { invalid_factory.dependency_key }.must_raise
+      expect { invalid_factory.dependency_key }.to raise_error do |error|
+        expect(error).to be_a(RuntimeError)
+        expect(error.message).to eq('dependency_key must be implemented')
+      end
     end
 
     it 'raises error when #create_service is not overriden' do
-      -> { invalid_factory.create_service([]) }.must_raise
+      expect { invalid_factory.create_service([]) }.to raise_error do |error|
+        expect(error).to be_a(RuntimeError)
+        expect(error.message).to eq('create_service must be implemented')
+      end
     end
   end
 
@@ -61,16 +67,17 @@ describe Koine::Di::ServiceFactory do
     it 'attaches to dependency_manager as a non shared resource' do
       service = container.get(:shared_key)
 
-      service.must_equal(Array.new([config]))
-      container.get(:shared_key).must_be_same_as(service)
+      expect(service).to eq(Array.new([config]))
+
+      expect(container.get(:shared_key)).to equal(service)
     end
 
     it 'extends ServiceFactory' do
-      shared_factory.new.is_a?(Koine::Di::ServiceFactory).must_equal true
+      expect(shared_factory.new).to be_a(Koine::Di::ServiceFactory)
     end
 
     it 'is shared' do
-      shared_factory.new.shared?.must_equal true
+      expect(shared_factory.new.shared?).to eq(true)
     end
   end
 end
